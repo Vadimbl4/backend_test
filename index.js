@@ -6,6 +6,8 @@ import fs from 'fs';
 const app = express();
 const PORT = 3000;
 
+const __dirname = path.dirname(__filename);
+
 // Маршрут для отправки видео
 app.get('/video/:name', (req, res) => {
     const videoName = req.params.name;
