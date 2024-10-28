@@ -9,7 +9,7 @@ const PORT = 3000;
 // Маршрут для отправки видео
 app.get('/video/:name', (req, res) => {
     const videoName = req.params.name;
-    const videoPath = path.join(__dirname, 'video', videoName); // Путь к видеофайлу
+    const videoPath = path.join('./video', videoName); // Путь к видеофайлу
 
     fs.stat(videoPath, (err, stats) => {
         if (err) {
