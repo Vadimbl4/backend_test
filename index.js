@@ -12,7 +12,7 @@ app.get('/video/:name', (req, res) => {
     console.log('videoName',videoName)
     const videoPath = path.join('./video', videoName); // Путь к видеофайлу
     console.log('videoPath',videoPath)
-    console.log('__dirname', __dirname);
+    // console.log('__dirname', __dirname);
 
     res.sendFile(videoPath, (err) => {
       if (err) {
