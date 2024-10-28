@@ -6,11 +6,15 @@ import fs from 'fs';
 const app = express();
 const PORT = 3000;
 
+console.log(path.resolve('./video/12.mp4'));
+
+
 // Маршрут для отправки видео
 app.get('/video/:name', (req, res) => {
     const videoName = req.params.name;
     console.log('videoName',videoName)
-    const videoPath = path.join('./video', videoName); // Путь к видеофайлу
+    // const videoPath = path.join('./video', videoName); // Путь к видеофайлу
+    const videoPath = path.resolve(`./video${videoName}`); // Путь к видеофайлу
     console.log('videoPath',videoPath)
     // console.log('__dirname', __dirname);
 
