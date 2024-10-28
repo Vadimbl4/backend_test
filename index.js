@@ -6,9 +6,6 @@ import fs from 'fs';
 const app = express();
 const PORT = 3000;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 // Маршрут для отправки видео
 app.get('/video/:name', (req, res) => {
     const videoName = req.params.name;
@@ -16,6 +13,15 @@ app.get('/video/:name', (req, res) => {
     const videoPath = path.join('./video', videoName); // Путь к видеофайлу
     console.log('videoPath',videoPath)
     console.log('__dirname', __dirname);
+
+    res.sendFile(videoPath, (err) => {
+      if (err) {
+          console.error(err);
+          res.status(err.status).end();
+      } else {
+          console.log('File sent:', filePath);
+      }
+  });
     
     // fs.stat(videoPath, (err, stats) => {
     //     if (err) {
