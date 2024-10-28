@@ -12,6 +12,8 @@ app.get('/video/:name', (req, res) => {
     console.log('videoName',videoName)
     const videoPath = path.join('./video', videoName); // Путь к видеофайлу
     console.log('videoPath',videoPath)
+    console.log('__dirname', __dirname);
+    
     // fs.stat(videoPath, (err, stats) => {
     //     if (err) {
     //         return res.status(404).send('Video not found');
